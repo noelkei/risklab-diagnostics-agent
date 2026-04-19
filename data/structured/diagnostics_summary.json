@@ -1,0 +1,136 @@
+{
+  "status": "ready",
+  "mode": "diagnostics",
+  "source_documents": [
+    "Model_Validation_Report",
+    "SR11_7_Model_Risk_Management"
+  ],
+  "source_pages": {
+    "Model_Validation_Report": [
+      3,
+      4,
+      6,
+      7,
+      8,
+      12,
+      13,
+      14
+    ],
+    "SR11_7_Model_Risk_Management": [
+      3,
+      4
+    ]
+  },
+  "summary": "Champion OOT ranking remains usable, but calibration weakened and material drift requires monitoring.",
+  "metrics": {
+    "top_drift_features": [
+      {
+        "feature": "revol util",
+        "feature_type": "numeric",
+        "psi": 0.2902,
+        "flag": "RED"
+      },
+      {
+        "feature": "application type",
+        "feature_type": "categorical",
+        "psi": 0.2457,
+        "flag": "AMBER"
+      },
+      {
+        "feature": "int rate",
+        "feature_type": "numeric",
+        "psi": 0.1271,
+        "flag": "AMBER"
+      },
+      {
+        "feature": "revol bal",
+        "feature_type": "numeric",
+        "psi": 0.0881,
+        "flag": "GREEN"
+      },
+      {
+        "feature": "purpose",
+        "feature_type": "categorical",
+        "psi": 0.0783,
+        "flag": "GREEN"
+      },
+      {
+        "feature": "sub grade",
+        "feature_type": "categorical",
+        "psi": 0.0756,
+        "flag": "GREEN"
+      },
+      {
+        "feature": "funded amnt",
+        "feature_type": "numeric",
+        "psi": 0.0625,
+        "flag": "GREEN"
+      },
+      {
+        "feature": "loan amnt",
+        "feature_type": "numeric",
+        "psi": 0.0625,
+        "flag": "GREEN"
+      }
+    ],
+    "score_shift": {
+      "finding": "Score shift is visible but not extreme, and the challenger remains more stable than the champion.",
+      "champion_logit": {
+        "score_psi": 0.025877,
+        "score_ks_stat": 0.057605
+      },
+      "challenger_lgbm": {
+        "score_psi": 0.015908,
+        "score_ks_stat": 0.044408
+      }
+    },
+    "calibration": {
+      "finding": "Champion mean PD remains above observed OOT default rate and calibration slope weakens out of time.",
+      "champion_oot": {
+        "mean_pd": 0.1906,
+        "observed_default_rate": 0.1473,
+        "calibration_intercept": -0.542,
+        "calibration_slope": 0.837
+      },
+      "challenger_oot": {
+        "mean_pd": 0.1968,
+        "observed_default_rate": 0.1473,
+        "calibration_intercept": -0.4185,
+        "calibration_slope": 0.9739
+      }
+    },
+    "reference_metrics": {
+      "champion_oot_auc": 0.6973,
+      "champion_oot_brier": 0.1213,
+      "challenger_oot_auc": 0.7262,
+      "challenger_oot_brier": 0.1183,
+      "psi_thresholds": {
+        "source_pages": [
+          6
+        ],
+        "stable_lt": 0.1,
+        "moderate_gte": 0.1,
+        "moderate_lt": 0.25,
+        "material_gte": 0.25,
+        "flag_mapping": {
+          "stable": "GREEN",
+          "moderate": "AMBER",
+          "material": "RED"
+        }
+      }
+    }
+  },
+  "quality_flags": [
+    "champion_calibration_degraded_oot",
+    "material_input_drift_detected",
+    "challenger_outperforms_champion_oot"
+  ],
+  "assumptions": [
+    "Validation findings are interpreted as report-derived snapshots and should be paired with ongoing monitoring.",
+    "Independent challenge and documentation remain part of proper model-risk use per SR11-7."
+  ],
+  "limitations": [
+    "Diagnostics are derived from report-level summaries rather than raw snapshot parquet inputs.",
+    "The artifact captures only the frozen three-document MVP evidence boundary and does not replace ongoing validation governance."
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "status": "ready",
+  "document_count": 3,
+  "chunk_count": 72,
+  "chunking_policy": {
+    "page_bounded": true,
+    "target_word_range": [
+      220,
+      320
+    ],
+    "split_on": [
+      "section_heading",
+      "paragraph_boundary"
+    ],
+    "overlap_words": 0,
+    "toc_backed_docs": [
+      "Model_Validation_Report",
+      "Basel_Stress_Testing_Principles_2018"
+    ],
+    "fallback_section_docs": [
+      "SR11_7_Model_Risk_Management"
+    ]
+  },
+  "documents": [
+    {
+      "doc_id": "Model_Validation_Report",
+      "path": "docs/domain/Model_Validation_Report.pdf",
+      "page_count": 15,
+      "toc_used": true,
+      "chunk_count": 31,
+      "authority_level": "internal",
+      "document_role": "internal_case_primary_source"
+    },
+    {
+      "doc_id": "SR11_7_Model_Risk_Management",
+      "path": "docs/domain/SR11_7_Model_Risk_Management.pdf",
+      "page_count": 5,
+      "toc_used": false,
+      "chunk_count": 12,
+      "authority_level": "supervisory",
+      "document_role": "supervisory_guidance"
+    },
+    {
+      "doc_id": "Basel_Stress_Testing_Principles_2018",
+      "path": "docs/domain/Basel_Stress_Testing_Principles_2018.pdf",
+      "page_count": 15,
+      "toc_used": true,
+      "chunk_count": 29,
+      "authority_level": "regulatory",
+      "document_role": "regulatory_principles"
+    }
+  ]
+}

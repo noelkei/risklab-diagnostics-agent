@@ -1,0 +1,74 @@
+{
+  "status": "ready",
+  "mode": "stress",
+  "source_documents": [
+    "Model_Validation_Report",
+    "Basel_Stress_Testing_Principles_2018"
+  ],
+  "source_pages": {
+    "Model_Validation_Report": [
+      9,
+      10,
+      11
+    ],
+    "Basel_Stress_Testing_Principles_2018": [
+      5,
+      7,
+      10,
+      13,
+      14
+    ]
+  },
+  "summary": "Mild and severe scenarios increase mean PD, tail PD, and EL proxy monotonically relative to baseline.",
+  "metrics": {
+    "baseline": {
+      "mean_pd": 0.190617,
+      "p95_pd": 0.417995,
+      "el_proxy_mean": 633.988656
+    },
+    "mild": {
+      "mean_pd": 0.195145,
+      "p95_pd": 0.427175,
+      "el_proxy_mean": 647.706794,
+      "delta_mean_pd": 0.004528,
+      "delta_p95_pd": 0.00918,
+      "delta_el_proxy": 13.718138,
+      "lgd_avg": 0.979338
+    },
+    "severe": {
+      "mean_pd": 0.200342,
+      "p95_pd": 0.436968,
+      "el_proxy_mean": 663.375656,
+      "delta_mean_pd": 0.009725,
+      "delta_p95_pd": 0.018973,
+      "delta_el_proxy": 29.387,
+      "lgd_avg": 0.979338
+    },
+    "delta_mean_pd": {
+      "mild": 0.004528,
+      "severe": 0.009725
+    },
+    "delta_tail_pd": {
+      "mild": 0.00918,
+      "severe": 0.018973
+    },
+    "delta_el_proxy": {
+      "mild": 13.718138,
+      "severe": 29.387
+    },
+    "monotonicity_passed": true
+  },
+  "quality_flags": [
+    "stress_results_directional_only",
+    "el_proxy_uses_proxy_lgd_and_ead",
+    "scenario_escalation_is_monotonic"
+  ],
+  "assumptions": [
+    "Scenario narratives remain stylized report overlays rather than full macroeconomic paths.",
+    "Stress results should be challenged and revisited under governance review in line with Basel principles."
+  ],
+  "limitations": [
+    "EL proxy uses report-level PD, LGD, and EAD proxies and should not be treated as a production capital model output.",
+    "Only baseline, mild, and severe cases from the frozen report are represented in the MVP artifact set."
+  ]
+}

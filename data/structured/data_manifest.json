@@ -1,0 +1,78 @@
+{
+  "status": "ready",
+  "artifacts": {
+    "metric_reference": {
+      "path": "data/structured/metric_reference.json",
+      "format": "json",
+      "record_count": 4,
+      "source_documents": [
+        "Model_Validation_Report"
+      ],
+      "source_pages": [
+        3,
+        6,
+        8,
+        9,
+        12,
+        13
+      ],
+      "derivation_policy": "direct_extract_or_simple_derivation"
+    },
+    "scenario_config": {
+      "path": "data/structured/scenario_config.yaml",
+      "format": "yaml",
+      "record_count": 3,
+      "source_documents": [
+        "Basel_Stress_Testing_Principles_2018",
+        "Model_Validation_Report"
+      ],
+      "source_pages": [
+        7,
+        9,
+        10,
+        13,
+        14
+      ],
+      "derivation_policy": "direct_extract_or_simple_derivation"
+    },
+    "diagnostics_summary": {
+      "path": "data/structured/diagnostics_summary.json",
+      "format": "json",
+      "record_count": 8,
+      "source_documents": [
+        "Model_Validation_Report",
+        "SR11_7_Model_Risk_Management"
+      ],
+      "source_pages": [
+        3,
+        4,
+        6,
+        7,
+        8,
+        12,
+        13,
+        14
+      ],
+      "derivation_policy": "direct_extract_or_simple_derivation"
+    },
+    "stress_summary": {
+      "path": "data/structured/stress_summary.json",
+      "format": "json",
+      "record_count": 3,
+      "source_documents": [
+        "Model_Validation_Report",
+        "Basel_Stress_Testing_Principles_2018"
+      ],
+      "source_pages": [
+        5,
+        7,
+        9,
+        10,
+        11,
+        13,
+        14
+      ],
+      "derivation_policy": "direct_extract_or_simple_derivation"
+    }
+  }
+}

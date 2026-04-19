@@ -1,0 +1,110 @@
+{
+  "status": "ready",
+  "source_documents": [
+    "Model_Validation_Report"
+  ],
+  "metrics": {
+    "performance_calibration": {
+      "source_pages": [
+        3,
+        12
+      ],
+      "models": {
+        "champion_logit": {
+          "train": {
+            "auc": 0.7104,
+            "pr_auc": 0.3824,
+            "gini": 0.4208,
+            "ks": 0.3048,
+            "brier": 0.1485,
+            "top10pct_default_capture": 0.2252,
+            "mean_pd": 0.2067,
+            "observed_default_rate": 0.2067,
+            "calibration_intercept": -0.0005,
+            "calibration_slope": 0.9996
+          },
+          "oot": {
+            "auc": 0.6973,
+            "pr_auc": 0.2631,
+            "gini": 0.3947,
+            "ks": 0.2939,
+            "brier": 0.1213,
+            "top10pct_default_capture": 0.2092,
+            "mean_pd": 0.1906,
+            "observed_default_rate": 0.1473,
+            "calibration_intercept": -0.542,
+            "calibration_slope": 0.837
+          }
+        },
+        "challenger_lgbm": {
+          "train": {
+            "auc": 0.7318,
+            "pr_auc": 0.4155,
+            "gini": 0.4635,
+            "ks": 0.3368,
+            "brier": 0.1448,
+            "top10pct_default_capture": 0.2421,
+            "mean_pd": 0.2067,
+            "observed_default_rate": 0.2067,
+            "calibration_intercept": 0.0915,
+            "calibration_slope": 1.079
+          },
+          "oot": {
+            "auc": 0.7262,
+            "pr_auc": 0.3038,
+            "gini": 0.4525,
+            "ks": 0.3372,
+            "brier": 0.1183,
+            "top10pct_default_capture": 0.2411,
+            "mean_pd": 0.1968,
+            "observed_default_rate": 0.1473,
+            "calibration_intercept": -0.4185,
+            "calibration_slope": 0.9739
+          }
+        }
+      }
+    },
+    "drift_thresholds": {
+      "source_pages": [
+        6
+      ],
+      "stable_lt": 0.1,
+      "moderate_gte": 0.1,
+      "moderate_lt": 0.25,
+      "material_gte": 0.25,
+      "flag_mapping": {
+        "stable": "GREEN",
+        "moderate": "AMBER",
+        "material": "RED"
+      }
+    },
+    "score_stability": {
+      "source_pages": [
+        8,
+        12,
+        13
+      ],
+      "models": {
+        "champion_logit": {
+          "score_psi": 0.025877,
+          "score_ks_stat": 0.057605,
+          "score_ks_p": 0.0
+        },
+        "challenger_lgbm": {
+          "score_psi": 0.015908,
+          "score_ks_stat": 0.044408,
+          "score_ks_p": 0.0
+        }
+      }
+    },
+    "sensitivity_reference": {
+      "source_pages": [
+        9
+      ],
+      "baseline_mean_pd": 0.190617,
+      "baseline_p95_pd": 0.417995,
+      "most_sensitive_feature": "dti",
+      "ranking_stability_finding": "Spearman correlation remains approximately 1 under tested shocks."
+    }
+  }
+}

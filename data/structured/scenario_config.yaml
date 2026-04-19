@@ -1,0 +1,71 @@
+status: ready
+scenario_order:
+- baseline
+- mild
+- severe
+monotonicity_expectation:
+  direction: non_decreasing
+  metrics:
+  - mean_pd
+  - p95_pd
+  - el_proxy_mean
+challenge_requirements:
+- Document scenario narratives and affected drivers.
+- Keep stresses severe but plausible and subject assumptions to challenge.
+- Review results regularly as part of governance and decision support.
+scenarios:
+  baseline:
+    label: Baseline OOT
+    narrative: Unstressed out-of-time observations used as the report reference point.
+    severity_rank: 0
+    affected_drivers: []
+    shock_descriptions: []
+    expected_direction: reference
+    source_documents:
+    - Model_Validation_Report
+    source_pages:
+    - 9
+    - 10
+  mild:
+    label: Mild recession
+    narrative: Lower income and higher DTI applied to OOT observations.
+    severity_rank: 1
+    affected_drivers:
+    - annual inc
+    - dti
+    shock_descriptions:
+    - lower income
+    - higher DTI
+    expected_direction: increase_risk
+    source_documents:
+    - Model_Validation_Report
+    - Basel_Stress_Testing_Principles_2018
+    source_pages:
+    - 10
+    - 7
+    - 10
+    - 13
+    - 14
+  severe:
+    label: Severe recession
+    narrative: Larger income reduction, larger DTI increase, and higher utilization
+      capped at stressed bounds.
+    severity_rank: 2
+    affected_drivers:
+    - annual inc
+    - dti
+    - revol util
+    shock_descriptions:
+    - larger income reduction
+    - larger DTI increase
+    - higher utilization capped
+    expected_direction: increase_risk
+    source_documents:
+    - Model_Validation_Report
+    - Basel_Stress_Testing_Principles_2018
+    source_pages:
+    - 10
+    - 7
+    - 10
+    - 13
+    - 14
